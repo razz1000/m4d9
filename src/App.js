@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavBar from "./component/NavBar";
+import SearchComponent from "./component/SearchComponent";
+import MoviesSection from "./components/MoviesSection";
+import Footer from "./component/Footer";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  state = {
+    searchQuery: "",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <SearchComponent
+        searchQuery={searchQuery}
+        setSearchQuery={this.setState}
+      />
+      <MoviesSection searchQuery={searchQuery} />
+      <Footer></Footer>
     </div>
   );
 }
